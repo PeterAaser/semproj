@@ -1,11 +1,41 @@
+# Set the article class
+#+LaTeX_CLASS: article
+#+LaTeX_CLASS_OPTIONS: [12pt]
+
+# No need for a table of contents, unless your paper is quite long.
+#+OPTIONS: toc:nil
+
+
+# Use fancy looking fonts. If you don't have MinionPro installed,
+# a good alternative is the Palatino-style pxfonts.
+# See: http://www.tug.dk/FontCatalogue/pxfonts/
+
+# Set the spacing to double, as required in most papers.
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \doublespacing
+
+# Fix the margins
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+
+# This line makes lists work better:
+# It eliminates whitespace before/within a list and pushes it tt the left margin
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \setlist[enumerate,itemize]{noitemsep,nolistsep,leftmargin=*}
+
+# I always include this for my bibliographies
+#+LATEX_HEADER: \usepackage[notes,isbn=false,backend=biber]{biblatex-chicago}
+#+LATEX_HEADER: \addbibresource{/Users/clarkdonley/Files/Academic/Bibliography/main.bib}
+
+#+TITLE: An Example Title
+#+AUTHOR: Dubs Checkem
+#+DATE: October 26, 2014
+
 * Abstract
 ** Introduce reservoir computing, neurons as reservoir.
 ** Introduce setup
 *** Possibly refer to diagram from initial proposal
-*** TODO Find out which paper the figure is from, should be in the read papers folder.
 ** Possibly introduce work on RBN as suggested by Tufte to investigate and control attractor length
 ** Introduce results
-
    
 
 * Introduction
@@ -49,7 +79,7 @@
    An important point is to show that these layers have no history, thus showing that a 
    reservoir can help the agent to do some task it would be unable to perform with a linear
    "uninteresting" reservoir. (even though a source of randomness would probably be enough 
-   for wall avoidance which should probably be emphasized). 
+   for wall avoidance which should probably be emphasized).
 
 ** MCS
 *** Should the specifics of our system be listed here, or simply an overview of typical MCS systems?
@@ -69,9 +99,16 @@
     The electrodes of the MEAs are measured and stimulated by the headstage which
     contains the necessary high precision electronics needed for microvolt range readings.
     
-    TODO skriv mer etter MCS besøk.
-*** Headstage
-*** STG (and the DSP)
+*** Interface board
+    The interface board connects to up to two head-stages and is responsible for interfacing
+    with the data acquisition computer, as well as auxiliary equipment such as temperature
+    controls.
+    The interface board processes and filters data from the head-stages which can then be
+    acquired on a normal computer connected via USB. Additionally the interface board 
+    contains a Texas instruments TMS320C6454 digital signal processor which can optionally
+    be programmed by users of the system and allows a second process to interface via a 
+    secondary USB.
+    
 
 ** Potter labs 
 *** Chapter 1 Computing with instinct
@@ -111,6 +148,7 @@
 * Methodology
   The closed loop system is a refinement of the neuro-robot architecture used in
   (cite Application of dissasociated neural networks in closed loop hybrid systems).
+  (add more detailed version of fig 1 from ↑)
   The architecture has three different areas of concern:
 
 ** Areas of concern
@@ -149,6 +187,7 @@
     and interfaces with an API provided by multichannel systems.
     It features an API exposing the MEA to the internet by sending a TCP stream with
     raw channel data, and accepting a stream of data for configuring stimuli.
+    TODO: something about the DSP
 
 *** SHODAN
     SHODAN is a framework for composing reservoir computing experiments written in scala.
@@ -156,14 +195,14 @@
     that we can blah blah blah
     SHODAN comes 
 
-** Describe the preproccesing and postprocessing of data
-   SHODAN 
+** Output and input processing
+   Something about GA's
+   
 
 * Experiments
-** Should describe the experiments using the infrastructure
-*** Playing a simple game to show that we can use an arbitrary untrained neuron culture.
-*** Possibly see if we can train a culture using absence of stimuli. After training see if culture performs better on untrained tasks.
-*** The actual robot, Martinius should be on the case.
+
+** Wall avoidance
+   
 
 * Results
 ** TODO get some hot results
@@ -176,9 +215,14 @@
 * Text 
   Keywords: self-organization, biological neuronal networks, cyborg, brain, robots, learning, neural computation, reservoir computing.
   The NTNU Cyborg (https://www.ntnu.edu/cyborg)
-  Through NTNU biotechnology and NTNU ICT initiatives (part of the NTNU enabling technolgies), a project to develop a Cyborg (cybernetic organism), a combination of machine and living tissue, has been started. In this project, the aim is to enable communication between living nerve tissue and a robot. This project will raise awareness for biotechnology and ICT, bringing NTNU in the forefront of research and creating a platform for interdisciplinary collaborations and teaching.
+  Through NTNU biotechnology and NTNU ICT initiatives (part of the NTNU enabling technolgies), a project to develop a Cyborg (cybernetic organism), a combination of machine and living tissue, has been started. 
+  In this project, the aim is to enable communication between living nerve tissue and a robot. 
+  This project will raise awareness for biotechnology and ICT, bringing NTNU in the forefront of research and creating a platform for interdisciplinary collaborations and teaching.
   Within this specialization project and master thesis, there will be a collaboration with the Departments of Neuroscience/Nanomedicine located at St. Olav Hospital and the Department of Engineering Cybernetics.
-  In particular, the goal is to contribute to the Cyborg infrastructure by buildind/testing the infrastructure for connecting alive neuronal cultures through a Micro-Electrode Array (MEA) that can be programmed to stimulate and record neural activity. The goal is to use such signals to control a real or simulated robot (e.g. Khepera robot). An intermediate layer will be used to process the neural signals, based on a feed forward artificial neural network (ANN), which will treat the biological network as a Reservoir of Computation.
+  In particular, the goal is to contribute to the Cyborg infrastructure by buildind/testing the infrastructure for connecting alive neuronal cultures through a Micro-Electrode Array (MEA) that can be programmed to stimulate and record neural activity. 
+  The goal is to use such signals to control a real or simulated robot (e.g. Khepera robot). 
+  An intermediate layer will be used to process the neural signals, based on a feed forward artificial neural network (ANN), which will treat the biological network as a Reservoir of Computation.
+
   Some tasks:
   - connect and test MEA infrastructure
   - record spontaneous neural activity and make sense of data / patterns

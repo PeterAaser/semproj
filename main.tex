@@ -1,0 +1,115 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{blindtext}
+\usepackage{graphicx}
+
+\usepackage[cmex10]{amsmath}
+\usepackage{array}
+
+\usepackage{mdwmath}
+\usepackage{mdwtab}
+
+\usepackage{fixltx2e}
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+
+% can use linebreaks \\ within to get better formatting as desired
+\title{Investigating in-vitro neuron cultures as computational reservoir}
+
+\author{Peter Aaser}
+%
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+  ITT: memes\\
+  underfull hbox badness $10000$
+  It's an abstract kind of shitpost
+\end{abstract}
+
+
+\begin{IEEEkeywords}
+memes, reddit, unfunny, low-energy
+\end{IEEEkeywords}
+
+\section{Introduction}
+Reservoir Computing is a novel approach to machine learning, using reservoirs
+containing dynamic complex systems as computational elements. 
+\cite{schrauwen_overview_2007}
+Many different systems have been used as reservoirs, ranging from
+virtual reservoirs such as random boolean networks and recurrent neural nets,
+to real physical systems such as nano-carbon tubes.
+Building on previous work we investigate using in-vitro neuron cultures as
+reservoirs, describing the necessary infrastructure for performing such
+experiments with live neurons.
+
+\section{Background}
+\subsection{Reservoir computing}
+A big disconnect between machine learning and how we perceive human reasoning is
+how to solve and encode problems of temporal nature.
+While feed forward structures which can only consider their current input can be
+extended to reduce temporal problems into structural ones by adding delays
+\cite{schrauwen_overview_2007}, a more natural approach is to use
+recurrent structures that modify themselves in response to input.
+A widely studied example of this approach is the recurrent neural network,
+however the increase in expressiveness makes these structures very hard to train\cite{bertschinger_real-time_2004}.
+Another example are random boolean networks #TODO CITE studied by Kauffman as a
+model for gene activation.
+such as in the human brain, or the organization of cells in ???.
+More generally, a reservoir is a complex nonlinear system with irreducible properties
+which we attempt to exploit in order to solve difficult problems such as classification.
+
+Linearly separable input output, detecting spikes vs more abstract spike encoding
+
+
+Alternative reservoirs
+Describe more recent reservoirs
+
+
+Post and preprocessing
+This section should motivate why data is post and preprocessed wrt reservoir computing.
+An important point is to show that these layers have no history, thus showing that a 
+reservoir can help the agent to do some task it would be unable to perform with a linear
+"uninteresting" reservoir. (even though a source of randomness would probably be enough 
+for wall avoidance which should probably be emphasized).
+\subsection{Neurons}
+\subsection{Hardware/MCS}
+
+\section{Methodology}
+Kind of a misnomer, really
+
+\section{Results}
+Yeah, about that...
+
+\section{Conclusiadore}
+In short you talk like a fag and your shit's all retarded. Thanks
+
+
+\appendices
+\section{Proof of the First Zonklar Equation}
+Some text for the appendix.
+\cite{li_application_2015}
+
+% use section* for acknowledgement
+\section*{Acknowledgment}
+
+
+The authors would like to thank...
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+\bibliography{mylib} 
+\bibliographystyle{ieeetr}
+
+\end{document}
