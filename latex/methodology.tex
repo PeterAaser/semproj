@@ -1,0 +1,70 @@
+TO-DO: differentiate RC-agnostic post processing and spike detection.
+Should probably be done in background
+
+The architecture described in this paper is a refinement of the neuro-robot
+architecture used in \cite{li_application_2015}.
+In \cite{li_application_2015} a system for working specifically with MEAs
+containing dissociated neurons is described with a TCP/IP connection to a slave
+PC controlling a robot being the main selling point. Our model is a
+generalization of \cite{li_application_2015} designed for reservoir computing,
+where the neuron-culture is just one of many possible reservoirs.
+It should be noted that our architecture does not require experiments to be
+posed in the context of reservoir computing. (not too happy with the words here,
+make them betterer. Also something about the possibility of multiple implementations)
+\subsection{Areas Of Concern}
+The architecture has been defined by three areas of concern. This modularization
+facilitates reuse of code ??? some words ???
+In this section it is important to note that we differentiate between generic
+data-processing and task specific processing. The former describes ~~getting
+spike trains while the latter describes reservoir computing specific processing~~
+~~This is good because it separates RC from other stuff~~
+\subsubsection{Data Acquisition and Interfacing}
+Data acquisition entails configuring the MEA2100, collecting 
+data from the MEA2100 and setting up stimuli. This means the data acquisition
+and interfacing software must at least be able to deliver a raw, that is
+unprocessed data-stream, as well as being able to accept requests for stimuli
+over TCP/IP.
+In practice the data acquisition software may also handle processing of acquired
+data for performance reasons, but it is not a required task.
+\subsubsection{Data Processing}
+This part of the architecture is responsible for processing data in a task
+specific, i.e non-generic way. The data may be raw waveform data or spike data
+from the MEA that needs to be processed into commands for an agent, or it may be
+sensor data from a simulated agent that must be processed into stimulus requests
+for the MEA. As with the data acquisition and interfacing module, the data
+processing module communicates over TCP/IP.
+\subsubsection{Agent Control}
+This module implements the actual embodiment of the neuron-culture. The agent
+control reads the processed data from the data processing modules and issues
+commands to an agent. It also transmits sensor data back to the data processing
+module, providing feedback to the neuron culture.
+The type of the agent is not specified, it can be a fully fledged walkin'
+talkin' cyborg, or it can be a simple simulated agent.
+\subsection{Implementation} 
+Currently the following software systems have been implemented:
+\subsubsection{MEAME}
+MEAME implements the data acquisition and interfacing requirement of the closed
+loop system. It is written in C# and interfaces with an API provided by
+multichannel systems which allows it to interface with the MCS interface board.
+MEAME also implements the optional DSP which is used to stimulate the neurons
+thus fulfilling both the requirements.
+\subsubsection{SHODAN}
+SHODAN is a 
+% By separating the areas of concern and using a simple TCP/IP protocol to glue them
+% together the closed loop system can accommodate different modules as long as they
+% adhere to their areas of concern.
+% 
+% For this project two separate software modules have been implemented:
+% 
+% MEAME
+% MEAME is responsible for data-acquisition and transmission. It is written in C#
+% and interfaces with an API provided by multichannel systems.
+% It features an API exposing the MEA to the internet by sending a TCP stream with
+% raw channel data, and accepting a stream of data for configuring stimuli.
+% TODO: something about the DSP
+% 
+% SHODAN
+% SHODAN is a framework for composing reservoir computing experiments written in scala.
+% The advantage of using a generic representation of reservoir computing systems is
+% that we can blah blah blah
+% SHODAN comes 

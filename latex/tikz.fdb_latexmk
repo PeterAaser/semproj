@@ -1,0 +1,11 @@
+# Fdb version 3
+["pdflatex"] 1481036607 "tikz.tex" "tikz.pdf" "tikz" 1481036607
+  "/etc/texmf/web2c/texmf.cnf" 1480264117 1464 a4af512f3aaf20a97ae1601d19d817c4 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1480264174 3822875 6800d175540ac1f9abbfba97f6890a4f ""
+  "tikz.aux" 1481036529 8 a94a2480d3289e625eea47cd1b285758 ""
+  "tikz.tex" 1481036606 6175 c29b8029962b6dfd1db7f99d66a8f12b ""
+  (generated)
+  "tikz.log"
+  "tikz.pdf"
