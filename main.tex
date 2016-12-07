@@ -5,13 +5,28 @@
 \usepackage[cmex10]{amsmath}
 \usepackage{array}
 
+\usepackage{float}
+
 \usepackage{mdwmath}
 \usepackage{mdwtab}
 
 \usepackage{fixltx2e}
 
 \usepackage{tikz}
-\usetikzlibrary{arrows,shapes,trees,intersections,shadows}
+\usetikzlibrary{
+  arrows,
+  shapes,
+  trees,
+  intersections,
+  shadows,
+  positioning,
+  decorations.pathmorphing,
+  fit,
+  petri,
+  backgrounds,
+  calc
+}
+
 % for showing geometry details wrt pdf rendering
 %\usepackage[showframe]{geometry}% http://ctan.org/pkg/geometry
 
@@ -32,6 +47,8 @@
   ITT: memes\\
   underfull hbox badness $10000$
   It's an abstract kind of shitpost
+  \blindtext[3]
+
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -44,13 +61,11 @@ memes, reddit, unfunny, low-energy
 \input{latex/background}
 \section{Methodology}
 \input{latex/methodology}
-\newpage
-%\input{latex/tikz}
 \section{Results}
 Yeah, about that...
 
 \section{Conclusion}
-In short you talk like a fag and your shit's all retarded. Thanks
+It says here you talk like a fag and your shit's all retarded. Thanks
 
 \section*{Acknowledgment}
 The authors would like to thank...\\

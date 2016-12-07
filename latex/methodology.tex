@@ -44,27 +44,26 @@ talkin' cyborg, or it can be a simple simulated agent.
 Currently the following software systems have been implemented:
 \subsubsection{MEAME}
 MEAME implements the data acquisition and interfacing requirement of the closed
-loop system. It is written in C# and interfaces with an API provided by
+loop system. It is written in C\# and interfaces with an API provided by
 multichannel systems which allows it to interface with the MCS interface board.
 MEAME also implements the optional DSP which is used to stimulate the neurons
 thus fulfilling both the requirements.
 \subsubsection{SHODAN}
-SHODAN is a 
-% By separating the areas of concern and using a simple TCP/IP protocol to glue them
-% together the closed loop system can accommodate different modules as long as they
-% adhere to their areas of concern.
-% 
-% For this project two separate software modules have been implemented:
-% 
-% MEAME
-% MEAME is responsible for data-acquisition and transmission. It is written in C#
-% and interfaces with an API provided by multichannel systems.
-% It features an API exposing the MEA to the internet by sending a TCP stream with
-% raw channel data, and accepting a stream of data for configuring stimuli.
-% TODO: something about the DSP
-% 
-% SHODAN
-% SHODAN is a framework for composing reservoir computing experiments written in scala.
-% The advantage of using a generic representation of reservoir computing systems is
-% that we can blah blah blah
-% SHODAN comes 
+SHODAN is a framework for composing reservoir computing experiments written in
+scala. In contrast to MEAME which is written specifically for interfacing with
+MEA2100, SHODAN is intended to facilitate general purpose input and output
+processing for reservoir computing.
+SHODAN currently hosts a number of tools for composing and reusing
+data-processing pipelines such as parametrizable feed forward neural nets,
+serialization and deserialization methods for TCP streams for communicating with
+the data-acquisition module and the agent control module.
+Additionally SHODAN hosts a simple simulator intended to stand in for a more
+full-fledged agent control module. This simple simulator simulates a simple
+agent with four eyes which reacts to proximity to a wall, and can visualized in
+a browser in real-time to get that sweet grant \$\$\$
+\subsection{Interfacing With the MEA2100 redux}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

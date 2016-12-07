@@ -213,15 +213,26 @@
 
 
 * Text 
-  Keywords: self-organization, biological neuronal networks, cyborg, brain, robots, learning, neural computation, reservoir computing.
+  Keywords: self-organization, biological neuronal networks, cyborg, brain, robots, learning, 
+  neural computation, reservoir computing.
   The NTNU Cyborg (https://www.ntnu.edu/cyborg)
-  Through NTNU biotechnology and NTNU ICT initiatives (part of the NTNU enabling technolgies), a project to develop a Cyborg (cybernetic organism), a combination of machine and living tissue, has been started. 
+  Through NTNU biotechnology and NTNU ICT initiatives (part of the NTNU enabling technolgies), 
+  a project to develop a Cyborg (cybernetic organism), a combination of machine and living tissue, 
+  has been started. 
   In this project, the aim is to enable communication between living nerve tissue and a robot. 
-  This project will raise awareness for biotechnology and ICT, bringing NTNU in the forefront of research and creating a platform for interdisciplinary collaborations and teaching.
-  Within this specialization project and master thesis, there will be a collaboration with the Departments of Neuroscience/Nanomedicine located at St. Olav Hospital and the Department of Engineering Cybernetics.
-  In particular, the goal is to contribute to the Cyborg infrastructure by buildind/testing the infrastructure for connecting alive neuronal cultures through a Micro-Electrode Array (MEA) that can be programmed to stimulate and record neural activity. 
+  This project will raise awareness for biotechnology and ICT, 
+  bringing NTNU in the forefront of research and creating a platform for interdisciplinary 
+  collaborations and teaching.
+  Within this specialization project and master thesis, there will be a collaboration with the 
+  Departments of Neuroscience/Nanomedicine located at St. Olav Hospital and the Department of 
+  Engineering Cybernetics.
+  In particular, the goal is to contribute to the Cyborg infrastructure by buildind/testing 
+  the infrastructure for connecting alive neuronal cultures through a Micro-Electrode Array (MEA) 
+  that can be programmed to stimulate and record neural activity. 
   The goal is to use such signals to control a real or simulated robot (e.g. Khepera robot). 
-  An intermediate layer will be used to process the neural signals, based on a feed forward artificial neural network (ANN), which will treat the biological network as a Reservoir of Computation.
+  An intermediate layer will be used to process the neural signals, based on a feed forward 
+  artificial neural network (ANN), which will treat the biological network as a Reservoir of 
+  Computation.
 
   Some tasks:
   - connect and test MEA infrastructure

@@ -2,7 +2,12 @@
  "tikz"
  (lambda ()
    (TeX-add-symbols
-    "blockdist"
-    "edgedist"))
+    "layersep"
+    "preInputNeurons"
+    "preHiddenNeurons"
+    "preOutputNeurons"
+    "OutInputNeurons"
+    "OutHiddenNeurons"
+    "OutOutputNeurons"))
  :latex)
 
