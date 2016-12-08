@@ -4,22 +4,33 @@ how to solve and encode problems of temporal nature.
 While feed forward structures which can only consider their current input can be
 extended to reduce temporal problems into structural ones by adding delays
 \cite{schrauwen_overview_2007}, a more natural approach is to use
-recurrent structures that modify themselves in response to input.
+recurrent structures that change their internal dynamics in response to input.
 A widely studied example of this approach is the recurrent neural network,
 however the increase in expressiveness makes these structures very hard to
 train\cite{bertschinger_real-time_2004}.
 Another example are random boolean networks \cite{gershenson_introduction_2004}
 studied by Kauffman as a  model for genetic regulatory networks.
 Common for these two systems, and many more such as cellular
-automata \cite{sipper_emergence_1999} and liquid state machines exhibit the
-properties of \textit{complex systems} \cite{langton_computation_1990}.
+automata \cite{sipper_emergence_1999} or even a bucket of water (?? cite EFPL
+bucket paper ??)is that they exhibit the properties of \textit{complex systems}
+\cite{langton_computation_1990}.
 Complex systems are systems that are, in a sense, magic.
 In order to harness the power of these complex systems it is fruitless to
-attempt to shape the topology and dynamics of the systems towards some specific
-goal. Instead, the complex systems are used as \textit{reservoirs} which we will
+attempt to shape the topology and dynamics of the system towards some specific
+goal. Instead, the complex systems are used as \textit{reservoirs} which we can
 interact with using a simple linearly separable input and output processing
-layer which can be easily trained \cite{schrauwen_overview_2007}.
-TO-DO: back linearly separable claims.
+layer which can be easily trained \cite{schrauwen_overview_2007}. (??EFPL paper??)
+\ref{fig:RC} shows a typical RC (reservoir computing) system with three inputs
+and two outputs. The inputs are processed in a simple feed-forward neural
+network before perturbing the reservoir in some way. Similarly the state of the
+reservoir is being processed by an output layer before leaving the RC system.
+In the figure the input and output processing is done by feed forward neural
+networks, but we note that this is only one of many possible filters.
+Inputs 1, 2 and 3 are snapshots of the current state of the problem we attempt
+to solve with reservoir computing. Since our filters have no state, at least not
+beyond some time horizon we see that the history of the system must in some way
+be encoded in the reservoir in order for the RC system to solve problems in
+scope wider than the limited amount of state that may be contained in the filters.
 \begin{figure*}[h]
   \input{latex/tikz}
   \caption{A reservoir comput-thingy}
@@ -48,7 +59,17 @@ The axon is a long tendril, extending over a meter in the case of the sciatic
 nerve TO-DO maybe embed link? which transmits information as electrical pulses
 to other neurons. An axon can branch off and reach multiple neurons, it is not a
 one to one connection.
+\subsection{Neuron-cultures as Reservoirs}
+Biological neurons have inspired artificial neurons, so BLARGH
 \subsection{The NTNU Cyborg Project}
+The NTNU cyborg project is a collaboration between several departments at NTNU
+including the department of biotechnology, computer and information science,
+engineering cybernetics, neuroscience and more. \cite{fossen_ntnu_???}
+The stated goal for the cyborg project is ``to enable communication between living
+nerve tissue and a robot. The social and interactive cyborg will walk around the campus
+raising awareness for biotechnology and ICT, bringing NTNU in the forefront of research
+and creating a platform for interdisciplinary collaborations and teaching.''
+A robot has been developed to this end, however it lacks 
 \subsection{MEA2100}
 To perform experiments a MEA2100 system has been purchased from multichannel systems.
 The MEA2100 system is built to conduct experiments on in-vitro cell cultures, 
