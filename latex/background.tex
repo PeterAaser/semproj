@@ -1,46 +1,74 @@
+\subsection{The NTNU Cyborg Project}
+The NTNU cyborg project is a collaboration between several departments at NTNU
+including the department of biotechnology, computer and information science,
+engineering cybernetics, neuroscience and more. \cite{fossen_ntnu_???}
+The stated goal for the cyborg project is ``to enable communication between living
+nerve tissue and a robot. The social and interactive cyborg will walk around the campus
+raising awareness for biotechnology and ICT, bringing NTNU in the forefront of research
+and creating a platform for interdisciplinary collaborations and teaching.''
+Currently the department of neuroscience is growing neuron cultures which are to
+be used as the biological part of the robot.
+These neuron cultures are not part of a brain, they are fully dissociated, grown
+in special chambers in-vitro.
+The robot part of the cyborg has been developed and implemented by the
+department of engineering cybernetics, and is currently operational, however it
+has not yet been integrated with the in-vitro neuron cultures.
+The challenge faced by the cyborg project is the infrastructure for interfacing the
+neuron cultures and the robot, essentially creating a brain computer interface.
 \subsection{Reservoir computing}
-A big disconnect between machine learning and how we perceive human reasoning is
-how to solve and encode problems of temporal nature.
-While feed forward structures which can only consider their current input can be
-extended to reduce temporal problems into structural ones by adding delays
-\cite{schrauwen_overview_2007}, a more natural approach is to use
-recurrent structures that change their internal dynamics in response to input.
-A widely studied example of this approach is the recurrent neural network,
-however the increase in expressiveness makes these structures very hard to
-train\cite{bertschinger_real-time_2004}.
-Another example are random boolean networks \cite{gershenson_introduction_2004}
-studied by Kauffman as a  model for genetic regulatory networks.
-Common for these two systems, and many more such as cellular
-automata \cite{sipper_emergence_1999} or even a bucket of water (?? cite EFPL
-bucket paper ??)is that they exhibit the properties of \textit{complex systems}
-\cite{langton_computation_1990}.
-Complex systems are systems that are, in a sense, magic.
-In order to harness the power of these complex systems it is fruitless to
-attempt to shape the topology and dynamics of the system towards some specific
-goal. Instead, the complex systems are used as \textit{reservoirs} which we can
-interact with using a simple linearly separable input and output processing
-layer which can be easily trained \cite{schrauwen_overview_2007}. (??EFPL paper??)
+\textit{
+  In this paper references are made to computations done by both artificial and real
+  neurons.
+  To make the distinction between these cases clear all computation done by
+  computer simulated approximations of neurons will be prefixed as artificial.
+}\\
+The emergent properties that makes cellular computing a such a successful
+paradigm in nature are also the reason that exploiting such systems has proven
+difficult.
+Many such systems have been explored, such as recurrent artificial neural
+networks \cite{bertschinger_real-time_2004}, random boolean networks
+\cite{gershenson_introduction_2004} and cellular automata.
+In \cite{langton_computation_1990} Langton explores the requirements for systems
+to support computation. He argues that in order for a system to support
+spontaneous computation it must lie blah blah blah
+
+Harnessing this emergent computational capacity has however turned out to be
+very hard.
+The blah blah fitness landscape.
+Instead of attempting to directly shape such a system, a much more tractable
+approach is to treat it as a \textit{reservoir} \cite{schrauwen_overview_2007} 
+which ``acts as a complex nonlinear dynamic filter that transforms the
+input signals using a high-dimensional temporal map, not unlike the operation
+of an explicit, temporal kernel function.''
+With this approach we shift our focus towards
+
 \ref{fig:RC} shows a typical RC (reservoir computing) system with three inputs
 and two outputs. The inputs are processed in a simple feed-forward neural
-network before perturbing the reservoir in some way. Similarly the state of the
-reservoir is being processed by an output layer before leaving the RC system.
+network before perturbing the reservoir in some way.
+Similarly the state of the reservoir is being processed by an output layer
+before leaving the RC system.
 In the figure the input and output processing is done by feed forward neural
 networks, but we note that this is only one of many possible filters.
 Inputs 1, 2 and 3 are snapshots of the current state of the problem we attempt
-to solve with reservoir computing. Since our filters have no state, at least not
-beyond some time horizon we see that the history of the system must in some way
-be encoded in the reservoir in order for the RC system to solve problems in
-scope wider than the limited amount of state that may be contained in the filters.
+to solve with reservoir computing.
+Since our filters have no state, at least not beyond some time horizon we see
+that the history of the system must in some way be encoded in the reservoir in
+order for the RC system to solve problems in scope wider than the limited amount
+of state that may be contained in the filters.
 \begin{figure*}[h]
   \input{latex/tikz}
   \caption{A reservoir comput-thingy}
   \label{fig:RC}
 \end{figure*}
-\subsection{Neurons}
+\subsection{Neuron Computing}
 Neurons are vastly complex entities, communicating through complex electric
-and chemical signals. However, since we are more interested in the emergent
-properties of neurons in the context of reservoir computing a superficial
-description suffices.
+and chemical signals.
+The human brain consist of 100 billion neurons, however useful computation can
+occur with far fewer neurons, as evident from the hierarchical structure of the
+human brain.
+
+However, since we are more interested in the emergent properties of neurons in
+the context of reservoir computing a superficial description suffices.
 We will only consider a generalized version of the neuron, but in our
 experiments a plethora of different neurons are used, although they
 all share the basic similarities described here.
@@ -56,20 +84,11 @@ the cell body. Their reach is only to the immediate vicinity of the cell, they
 do not form longer connections.
 \subsubsection{Axon}
 The axon is a long tendril, extending over a meter in the case of the sciatic
-nerve TO-DO maybe embed link? which transmits information as electrical pulses
-to other neurons. An axon can branch off and reach multiple neurons, it is not a
-one to one connection.
-\subsection{Neuron-cultures as Reservoirs}
-Biological neurons have inspired artificial neurons, so BLARGH
-\subsection{The NTNU Cyborg Project}
-The NTNU cyborg project is a collaboration between several departments at NTNU
-including the department of biotechnology, computer and information science,
-engineering cybernetics, neuroscience and more. \cite{fossen_ntnu_???}
-The stated goal for the cyborg project is ``to enable communication between living
-nerve tissue and a robot. The social and interactive cyborg will walk around the campus
-raising awareness for biotechnology and ICT, bringing NTNU in the forefront of research
-and creating a platform for interdisciplinary collaborations and teaching.''
-A robot has been developed to this end, however it lacks 
+nerve, which transmits information as electrical pulses to other neurons. An
+axon can branch off and reach multiple neurons, it is not a one to one
+connection.
+\subsection{Adaptivity}
+
 \subsection{MEA2100}
 To perform experiments a MEA2100 system has been purchased from multichannel systems.
 The MEA2100 system is built to conduct experiments on in-vitro cell cultures, 

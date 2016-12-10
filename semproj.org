@@ -246,3 +246,30 @@
   Initial Reading:
   K. Warwick et al., Experiments with an in-vitro robot brain
   
+
+* Gunnar suggestion:
+** Intro:
+*** Unconventional
+    von neumann, bottleneck, parallellism etc
+*** Nature approach
+    emergence, self organizing
+*** RC
+    Interfacing with CS
+*** NTNU Cyborg
+
+** Background:
+*** NTNU Cyborg
+*** RC
+*** Neuro
+*** Adaptivity (GA, training)
+
+** A hybrid neuro-digital approach
+*** Concept
+*** cyborg platform
+*** growing NIV
+*** A first test
+
+** Results
+** A HW/SW platform
+** Diskuz
+** further
