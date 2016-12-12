@@ -15,33 +15,60 @@ department of engineering cybernetics, and is currently operational, however it
 has not yet been integrated with the in-vitro neuron cultures.
 The challenge faced by the cyborg project is the infrastructure for interfacing the
 neuron cultures and the robot, essentially creating a brain computer interface.
-\subsection{Reservoir computing}
+\subsection{Complex Systems}
 \textit{
   In this paper references are made to computations done by both artificial and real
   neurons.
   To make the distinction between these cases clear all computation done by
   computer simulated approximations of neurons will be prefixed as artificial.
 }\\
-The emergent properties that makes cellular computing a such a successful
-paradigm in nature are also the reason that exploiting such systems has proven
-difficult.
+The self-organizing properties that makes cellular computing a such a successful
+paradigm in nature also make understanding and exploiting them difficult.
 Many such systems have been explored, such as recurrent artificial neural
 networks \cite{bertschinger_real-time_2004}, random boolean networks
 \cite{gershenson_introduction_2004} and cellular automata.
 In \cite{langton_computation_1990} Langton explores the requirements for systems
-to support computation. He argues that in order for a system to support
-spontaneous computation it must lie blah blah blah
-
-Harnessing this emergent computational capacity has however turned out to be
-very hard.
-The blah blah fitness landscape.
-Instead of attempting to directly shape such a system, a much more tractable
-approach is to treat it as a \textit{reservoir} \cite{schrauwen_overview_2007} 
-which ``acts as a complex nonlinear dynamic filter that transforms the
+to support emergent computation, where
+he argues that in order for a system to support emergent computation it must
+lie in a \textit{critical phase} between order and chaos, drawing parallels to
+phase transitions in material science.
+This observation comes from thermodynamics, in which a material may exhibit a
+\textit{second order phase transition} between a solid and liquid form where the
+material undergoes a continuous transition in contrast to a first order
+transition such as melting ice.
+Using cellular automata as an example, he explores the effect of varying the
+rules for calculating the next state with a parameter, $\lambda$, which
+describes how likely it is for a cell to enter a \textit{quiescent state}, a state
+where it will not disturb other cells until it leaves the quiescent state itself.
+At $\lambda = 0$ all cells enter a quiescent state after one step, representing
+a fully ordered system, thus at $\lambda = 0$ the system is in the ordered phase.
+At $\lambda = 1$ there are no rules that leads to a quiescent state, leading to
+very chaotic systems with very high entropy, representing the chaotic phase.
+As $\lambda$ is increased from 0 the cellular systems starts to form intricate
+structures, increasing in complexity and taking longer to reach a steady state.
+This behavior peaks at $\lambda \approx 0.5$ which is the most critical phase in this
+particular system, creating complex self-organizing structures.
+As $\lambda$ is increased further the self-organizing structures start to give
+way to more chaotic and seemingly random behavior, gradually transitioning into
+the chaotic phase.\\
+It turns out then, that with most cellular systems providing the necessary
+conditions for computation to occur is a tractable problem, however harnessing
+and shaping this computation is a whole different matter.
+In their critical phase systems are unstable but not chaotic which causes them to
+be highly sensitive to small changes in topology and initial conditions.
+Attempting to maneuver this fitness-landscape by directly changing the
+properties of a system would in many ways be like calculating the correct way
+for a butterfly in china to flap its wings in order to cause a hurricane in New York.\\
+\subsection{Reservoir Computing}
+Faced with the intractability of designing cellular computation systems in a top
+down manner, and the unpredictable relation between cause and effect in self organizing
+systems has made it necessary to approach complex systems in a different manner.
+One such approach is to treat the system as a \textit{reservoir}
+\cite{schrauwen_overview_2007} which
+``acts as a complex nonlinear dynamic filter that transforms the
 input signals using a high-dimensional temporal map, not unlike the operation
-of an explicit, temporal kernel function.''
-With this approach we shift our focus towards
-
+of an explicit, temporal kernel function.''\\
+AAAAAA
 \ref{fig:RC} shows a typical RC (reservoir computing) system with three inputs
 and two outputs. The inputs are processed in a simple feed-forward neural
 network before perturbing the reservoir in some way.
@@ -61,14 +88,18 @@ of state that may be contained in the filters.
   \label{fig:RC}
 \end{figure*}
 \subsection{Neuron Computing}
-Neurons are vastly complex entities, communicating through complex electric
-and chemical signals.
-The human brain consist of 100 billion neurons, however useful computation can
-occur with far fewer neurons, as evident from the hierarchical structure of the
-human brain.
-
-However, since we are more interested in the emergent properties of neurons in
-the context of reservoir computing a superficial description suffices.
+The human brain consist of 100 billion neurons, forming a vastly complex
+hierarchy of behavior, from the neuron-level interactions to the interaction
+between different parts of the brain such as the hippocampus and the frontal lobe.
+The basic building block of the brain is the neuron, which even by itself is a
+very complex system, not at all analogous to a single transistor or an artificial
+neuron.
+These neurons communicate with each others using electric and chemical signals
+in a complex interplay between neurotransmitters, voltage spikes and even
+rearranging their physical structures, growing new connections and letting
+unused connections wither.
+The complexities of neurons have been widely studied, but for this paper a
+cursory introduction is sufficient.
 We will only consider a generalized version of the neuron, but in our
 experiments a plethora of different neurons are used, although they
 all share the basic similarities described here.
@@ -88,85 +119,8 @@ nerve, which transmits information as electrical pulses to other neurons. An
 axon can branch off and reach multiple neurons, it is not a one to one
 connection.
 \subsection{Adaptivity}
+Write about evolvable systems. Possibly evo-devo?
 
-\subsection{MEA2100}
-To perform experiments a MEA2100 system has been purchased from multichannel systems.
-The MEA2100 system is built to conduct experiments on in-vitro cell cultures, 
-with the main focus being on neurons.
-The principal components of the MEA2100 systems are:
-\subsubsection{Micro electrode array}
-\begin{figure}[h!]
-    %\centering
-    \includegraphics[width=\linewidth]{images/MEA.jpg}
-    \caption{A generic MEA}
-    \label{fig:generic_MEA}
-\end{figure}
-To experiment on the properties of cells or other electrically active subjects the
-micro electrode array (MEA) is used. As the name implies the MEA is equipped with
-an array of electrodes able to both measure the electrical properties of the 
-experiment subjects, as well as applying outside stimuli, acting in a sense as
-output and input for the subject. \ref{fig:generic_MEA} shows an empty MEA,
-\ref{st_olav_MEA} shows an MEA from st.olavs with a live neuron culture.
-\begin{figure}[h!]
-    %\centering
-    \includegraphics[width=\linewidth]{images/st-olavs-mea.jpg}
-    \caption{A MEA with a live culture, photographed by Kai}
-    \label{fig:st_olav_MEA}
-\end{figure}
-\subsubsection{Headstage}
-The electrodes of the MEAs are measured and stimulated by the headstage which
-contains the necessary high precision electronics needed for microvolt range readings.
-\ref{fig:headstage} shows the same type of headstage used in this paper along
-with an MEA.
-\begin{figure}[h!]
-    %\centering
-    \includegraphics[width=\linewidth]{images/MEA2100-HS60.jpg}
-    \caption{The headstage}
-    \label{fig:headstage}
-\end{figure}
-\subsubsection{Interface board}
-The interface board connects to up to two head-stages and is responsible for interfacing
-with the data acquisition computer, as well as auxiliary equipment such as temperature
-controls.
-\begin{figure}[h!]
-    %\centering
-    \includegraphics[width=\linewidth]{images/MCS-IFB.jpg}
-    \caption{The MCS interface board}
-    \label{fig:neuron_anatomy}
-\end{figure}
-The interface board has two modes of operation.
-In the first mode the interface board processes and filters data from up to two
-headstages as shown in \ref{fig:IFB_regular} which can then be acquired on a normal
-computer connected via USB.
-In the second mode of operation a Texas instruments TMS320C6454 digital signal
-processor is activated which can then be interfaced with using the secondary USB
-port as shown in \ref{fig:IFB_BSP}
-\begin{figure}[h!]
-    %\centering
-    \includegraphics[width=\linewidth]{images/regular_operation.png}
-    \caption{Casual mode}
-    \label{fig:IFB_regular}
-\end{figure}
-%% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %%
-%% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %%
-%% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %%
-%% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %%
-\begin{figure}[h!]
-    %\centering
-    \includegraphics[width=\linewidth]{images/dsp_operation.png}
-    \caption{DSP active}
-    \label{fig:IFB_DSP}
-\end{figure}
-%% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %%
-%% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %%
-%% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %%
-%% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %%
-\begin{figure*}[p]
-    \centering
-    \includegraphics[width=\textwidth]{images/"Neuron anatomy".png}
-    \caption{a neuron}
-    \label{fig:neuron_anatomy}
-\end{figure*}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
