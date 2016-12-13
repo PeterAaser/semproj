@@ -22,8 +22,18 @@ neuron cultures and the robot, essentially creating a brain computer interface.
   To make the distinction between these cases clear all computation done by
   computer simulated approximations of neurons will be prefixed as artificial.
 }\\
-The self-organizing properties that makes cellular computing a such a successful
-paradigm in nature also make understanding and exploiting them difficult.
+The self-organizing properties that makes cellular computing such as
+neural networks so successful in nature also make understanding and exploiting
+them difficult.
+In contrast with microprocessors, cellular computing describes systems where
+each component cell is relatively simple, interacting mostly with its neighbors
+with no global control mechanism.
+Neuron cultures pose additional difficulties compared to simpler cellular
+systems, both practical and complexity-wise, as even a single neuron is a vastly
+complex entity.
+To approach neuron cultures it is useful to employ models of simple cellular
+systems that exhibit self organizing and dynamic behavior, known as \textit{complex
+ systems}.
 Many such systems have been explored, such as recurrent artificial neural
 networks \cite{bertschinger_real-time_2004}, random boolean networks
 \cite{gershenson_introduction_2004} and cellular automata.
@@ -68,7 +78,12 @@ One such approach is to treat the system as a \textit{reservoir}
 ``acts as a complex nonlinear dynamic filter that transforms the
 input signals using a high-dimensional temporal map, not unlike the operation
 of an explicit, temporal kernel function.''\\
-AAAAAA
+In reservoir computing there is no designer shaping a system, the systems
+organize and shape their own behavior, forming systems with complex behavior
+that can reflect subtle differences in initial conditions and stimuli.
+From the perspective of reservoir computing using a neural culture is reduced to
+learning the correlation between input and output from the reservoir, treating
+the internals as a black box.
 \ref{fig:RC} shows a typical RC (reservoir computing) system with three inputs
 and two outputs. The inputs are processed in a simple feed-forward neural
 network before perturbing the reservoir in some way.
@@ -88,39 +103,49 @@ of state that may be contained in the filters.
   \label{fig:RC}
 \end{figure*}
 \subsection{Neuron Computing}
-The human brain consist of 100 billion neurons, forming a vastly complex
-hierarchy of behavior, from the neuron-level interactions to the interaction
-between different parts of the brain such as the hippocampus and the frontal lobe.
-The basic building block of the brain is the neuron, which even by itself is a
-very complex system, not at all analogous to a single transistor or an artificial
-neuron.
-These neurons communicate with each others using electric and chemical signals
-in a complex interplay between neurotransmitters, voltage spikes and even
-rearranging their physical structures, growing new connections and letting
-unused connections wither.
-The complexities of neurons have been widely studied, but for this paper a
-cursory introduction is sufficient.
-We will only consider a generalized version of the neuron, but in our
-experiments a plethora of different neurons are used, although they
-all share the basic similarities described here.
-The anatomy of a neuron is shown in \ref{fig:neuron_anatomy} and can roughly be
-divided into the following parts:
-\subsubsection{Soma}
-The main body of the neuron.
-\subsubsection{Dendrites}
-To sense its surroundings the neuron is equipped with dendrites. These
-branching structures act as receivers, propagating electro-chemical stimuli to
-the cell body. Their reach is only to the immediate vicinity of the cell, they
-do not form longer connections.
-\subsubsection{Axon}
-The axon is a long tendril, extending over a meter in the case of the sciatic
-nerve, which transmits information as electrical pulses to other neurons. An
-axon can branch off and reach multiple neurons, it is not a one to one
-connection.
-\subsection{Adaptivity}
-Write about evolvable systems. Possibly evo-devo?
-Something in relation to understanding the underlying growth rules (devo) using
-evolution, in contrast to directly evolving phenotypes.
+% The human brain consist of 100 billion neurons, forming a vastly complex
+% hierarchy of behavior, from the neuron-level interactions to the interaction
+% between different parts of the brain such as the hippocampus and the frontal lobe.
+% Interestingly the different parts of the brain are all composed of similar
+% neural networks, the division of labor in the brain seems to spontaneously
+% occur.
+Neurons are cells which communicate with each others using electro-chemical
+signals in vast interconnected networks.
+These networks communicate in a complex interplay between neurotransmitters and voltage
+spikes, and their communication prompt structural changes in the network,
+deeply intertwining the emergent behavior and self organizing properties on neurons.
+There is a high degree of correlation between the electrical, chemical signals
+in these neural network, thus a necessary simplification of considering only the
+electrical signals when interacting with neural networks can be made at a small
+cost of information loss.
+These electrical signals, known as action potentials, are caused
+by polarity differentials between the ions inside and the ions outside of the
+cell membrane.
+A neuron maintains this potential difference by transporting ions of opposite
+polarity through the cell membrane, essentially preparing a spike of electrical
+activity.
+This spike is triggered as the neuron receives electrical stimuli via a network
+of electrical receptors called dendrites
+When excited, a neuron which has built up a sufficient polarity difference will
+trigger a polarity shift.
+This polarity shift cascades along the axon, a long tendril that can extend to
+reach far away neurons, forming branches to reach multiple neurons.
+% \subsubsection{Soma}
+% The main body of the neuron.
+% \subsubsection{Dendrites}
+% To sense its surroundings the neuron is equipped with dendrites. These
+% branching structures act as receivers, propagating electro-chemical stimuli to
+% the cell body. Their reach is only to the immediate vicinity of the cell, they
+% do not form longer connections.
+% \subsubsection{Axon}
+% The axon is a long tendril, extending over a meter in the case of the sciatic
+% nerve, which transmits information as electrical pulses to other neurons. An
+% axon can branch off and reach multiple neurons, it is not a one to one
+% connection.
+% \subsection{Adaptivity}
+% Write about evolvable systems. Possibly evo-devo?
+% Something in relation to understanding the underlying growth rules (devo) using
+% evolution, in contrast to directly evolving phenotypes.
 
 \begin{figure*}[p]
     \centering
