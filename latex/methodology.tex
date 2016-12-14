@@ -1,68 +1,45 @@
-TO-DO: differentiate RC-agnostic post processing and spike detection.
-Should probably be done in background
-
-The architecture described in this paper is a refinement of the neuro-robot
-architecture used in \cite{li_application_2015}.
-In \cite{li_application_2015} a system for working specifically with MEAs
-containing dissociated neurons is described with a TCP/IP connection to a slave
-PC controlling a robot being the main selling point. Our model is a
-generalization of \cite{li_application_2015} designed for reservoir computing,
-where the neuron-culture is just one of many possible reservoirs.
-It should be noted that our architecture does not require experiments to be
-posed in the context of reservoir computing. (not too happy with the words here,
-make them betterer. Also something about the possibility of multiple implementations)
-\subsection{Areas Of Concern}
-The architecture has been defined by three areas of concern. This modularization
-facilitates reuse of code ??? some words ???
-In this section it is important to note that we differentiate between generic
-data-processing and task specific processing. The former describes ~~getting
-spike trains while the latter describes reservoir computing specific processing~~
-~~This is good because it separates RC from other stuff~~
-\subsubsection{Data Acquisition and Interfacing}
-Data acquisition entails configuring the MEA2100, collecting 
-data from the MEA2100 and setting up stimuli. This means the data acquisition
-and interfacing software must at least be able to deliver a raw, that is
-unprocessed data-stream, as well as being able to accept requests for stimuli
-over TCP/IP.
-In practice the data acquisition software may also handle processing of acquired
-data for performance reasons, but it is not a required task.
-\subsubsection{Data Processing}
-This part of the architecture is responsible for processing data in a task
-specific, i.e non-generic way. The data may be raw waveform data or spike data
-from the MEA that needs to be processed into commands for an agent, or it may be
-sensor data from a simulated agent that must be processed into stimulus requests
-for the MEA. As with the data acquisition and interfacing module, the data
-processing module communicates over TCP/IP.
-\subsubsection{Agent Control}
-This module implements the actual embodiment of the neuron-culture. The agent
-control reads the processed data from the data processing modules and issues
-commands to an agent. It also transmits sensor data back to the data processing
-module, providing feedback to the neuron culture.
-The type of the agent is not specified, it can be a fully fledged walkin'
-talkin' cyborg, or it can be a simple simulated agent.
-\subsection{Implementation} 
-Currently the following software systems have been implemented:
-\subsubsection{MEAME}
-MEAME implements the data acquisition and interfacing requirement of the closed
-loop system. It is written in C\# and interfaces with an API provided by
-multichannel systems which allows it to interface with the MCS interface board.
-MEAME also implements the optional DSP which is used to stimulate the neurons
-thus fulfilling both the requirements.
-\subsubsection{SHODAN}
-SHODAN is a framework for composing reservoir computing experiments written in
-scala. In contrast to MEAME which is written specifically for interfacing with
-MEA2100, SHODAN is intended to facilitate general purpose input and output
-processing for reservoir computing.
-SHODAN currently hosts a number of tools for composing and reusing
-data-processing pipelines such as parametrizable feed forward neural nets,
-serialization and deserialization methods for TCP streams for communicating with
-the data-acquisition module and the agent control module.
-Additionally SHODAN hosts a simple simulator intended to stand in for a more
-full-fledged agent control module. This simple simulator simulates a simple
-agent with four eyes which reacts to proximity to a wall, and can visualized in
-a browser in real-time to get that sweet grant \$\$\$
-\subsection{Interfacing With the MEA2100}
-
+The hardware used to interface with neuron cultures for the cyborg is an
+\textit{MEA2100} system purchased from multichannel systems. 
+The MEA2100 system is built to conduct in-vitro experiments electrically active
+cell cultures such as neurons.
+The principal components of the MEA2100 systems are:
+\subsubsection{Micro Electrode Array}
+Introduced in the previous chapter, the \textit{MEA} is equipped with an array
+of microscopic electrodes capable of sensing and delivering voltages to and from
+nearby neurons.
+\ref{fig:generic_MEA} shows an empty MEA,
+\ref{st_olav_MEA} shows an MEA from st.olavs with a live neuron culture.
+\subsubsection{Headstage}
+The electrodes of the MEAs are measured and stimulated by the headstage which
+contains the necessary high precision electronics needed for microvolt range readings.
+\ref{fig:headstage} shows the same type of headstage used in this paper along
+with an MEA.
+\subsubsection{Interface board}
+The interface board connects to up to two head-stages and is responsible for interfacing
+with the data acquisition computer, as well as auxiliary equipment such as temperature
+controls.
+The interface board has two modes of operation.
+In the first mode the interface board processes and filters data from up to two
+headstages as shown in \ref{fig:IFB_regular} which can then be acquired on a normal
+computer connected via USB.
+In the second mode of operation a Texas instruments TMS320C6454 digital signal
+processor is activated which can then be interfaced with using the secondary USB
+port as shown in \ref{fig:IFB_BSP}
+\begin{figure}[h!]
+    %\centering
+    \includegraphics[width=\linewidth]{images/regular_operation.png}
+    \caption{Casual mode}
+    \label{fig:IFB_regular}
+\end{figure}
+\begin{figure}[h!]
+    %\centering
+    \includegraphics[width=\linewidth]{images/dsp_operation.png}
+    \caption{DSP active}
+    \label{fig:IFB_DSP}
+\end{figure}
+\subsubsection{A Closed Loop}
+The final system. NIV - MEA2100 -TCP/IP- processing - NTNU cyborg -
+processing -TCP/IP- MEA2100 - NIV
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
