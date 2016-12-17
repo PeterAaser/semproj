@@ -21,6 +21,7 @@
     "demarse_neurally_2001"
     "jahren_computational_2012"
     "bertschinger_real-time_2004"
+    "jaeger_adaptive_2003"
     "warwick_experiments_2011"
     "bull_initial_2007"
     "kumar_autonomous_2016"
@@ -36,6 +37,7 @@
     "SHODAN"
     "HIPEAC"
     "moore"
+    "ntnu_cyborg"
     "jabref-meta:"))
  :bibtex)
 

@@ -31,25 +31,14 @@ context of reservoir computing.
 \subsubsection{Data Acquisition and Interfacing}
 Data acquisition (DAQ) is the task of configuring and interfacing with a specific
 reservoir, essentially providing the wrapper for an actual reservoir which
-represents the idealized shown in \ref{that RC image}.
-The data acquisition may perform reservoir specific data processing as described
-in the previous section, 
-% ???
+represents the idealized shown in \ref{fig:RC}.
 Finally, the data acquisition and interfacing module should expose an interface
 via TCP/IP allowing configuring the reservoir, accessing reservoir output and
 accepting requests to stimulate the reservoir.
-%
-% Data acquisition entails configuring the MEA2100, collecting 
-% data from the MEA2100 and setting up stimuli. This means the data acquisition
-% and interfacing software must at least be able to deliver a raw, that is
-% unprocessed data-stream, as well as being able to accept requests for stimuli
-% over TCP/IP.
-% In practice the data acquisition software may also handle processing of acquired
-% data for performance reasons, but it is not a required task.
 \subsubsection{Data Processing}
 This part of the architecture is responsible for the reservoir computing
 processing of data which is shown in the idealized model of reservoir computing in
-\ref{that RC image}.
+\ref{fig:RC}.
 Implementations of the data processing stage must be able to filter input from
 a reservoir received from the DAQ module into actions, as well as filtering
 sensor data received from the agent control module to a format compatible with
@@ -76,11 +65,11 @@ controlling the NTNU cyborg and where they fit into the general RC-cyborg
 framework.
 This represents the bulk of work performed in this paper.
 \subsubsection{MEAME}
-MEAME implements data acquisition and interfacing for using neural cultures as a
+MEAME \cite{MEAME} implements data acquisition and interfacing for using neural cultures as a
 reservoir.
 It is written in C\# and interfaces to the MEA2100 system using an API provided
 by multichannel systems allowing it to interface with the interface board
-\ref{fig:IFB}.
+\ref{fig:MCS-IFB}.
 MEAME also implements the optional DSP which is used to stimulate the neurons
 and can be used to process the waveform data from the neural cultures in real
 time, and even implement more advanced techniques for timing stimulation to
@@ -96,7 +85,7 @@ If this technique is implemented on the DSP the resulting system would be a
 reservoir with different characteristics even though it uses the same underlying
 neural network as its physical reservoir.
 \subsubsection{SHODAN}
-SHODAN is a framework for composing reservoir computing experiments written in
+SHODAN \cite{SHODAN} is a framework for composing reservoir computing experiments written in
 scala. In contrast to MEAME which is written specifically for interfacing with
 MEA2100, SHODAN is intended to facilitate general purpose input and output
 processing for reservoir computing.

@@ -1,7 +1,7 @@
 \subsection{The NTNU Cyborg Project}
 The NTNU cyborg project is a collaboration between several departments at NTNU
 including the department of biotechnology, computer and information science,
-engineering cybernetics, neuroscience and more. \cite{ntnu_cyborg_web}
+engineering cybernetics, neuroscience and more. \cite{ntnu_cyborg}
 The stated goal for the cyborg project is ``to enable communication between living
 nerve tissue and a robot. The social and interactive cyborg will walk around the campus
 raising awareness for biotechnology and ICT, bringing NTNU in the forefront of research
@@ -27,27 +27,22 @@ use without a way to understand what to make of the information coming from the
 network, and how to encode information sent back to the network.
 In order to harness the computational power of neural networks a theoretical
 framework is therefore necessary, starting with the concept of \textit{complex
-  systems}.
-The self-organizing properties that makes cellular computing such as
-neural networks so successful in nature also make understanding how they work
-very difficult, there are no simple relations between cause and effect.
-In contrast with microprocessors, cellular computing describes systems where
-each component cell is relatively simple, interacting mostly with its neighbors
-with no global control mechanism.
-Neuron cultures pose additional difficulties compared to simpler cellular
-systems, both practical and complexity-wise, as even a single neuron is a vastly
-complex entity.
-To approach neuron cultures we therefore identify a set of fundamental
-properties common for cellular computing systems so that we may employ simpler
-models first.
-The properties common for the systems we explore are that they are complex
-systems: They are self organizing and have nonlinear responses, displaying
-behavior where the sum is greater than the parts.
-Many such systems have been explored, such as recurrent artificial neural
-networks \cite{bertschinger_real-time_2004}, random boolean networks
-\cite{gershenson_introduction_2004} and cellular automata.
-In \cite{langton_computation_1990} Langton explores the requirements for systems
-to support emergent computation, where
+ systems}.
+Complex systems are dynamic nonlinear systems whose behavior is an emergent
+property that cannot be tracked back to a single component.
+In these systems positive feedback loops amplify small changes into cascading
+changes changing the entire system, while negative feedback loops may cause
+other states to be relatively stable, resulting in multiple meta-stable states,
+so called \textit{attractors}, that give the system some measure of order.
+By classifying neural cultures as one of many cellular computing systems that
+exhibit the properties of a complex system we can model the behavior of neurons
+with much simpler models (of complex systems).
+In \cite{sipper_emergence_1999} Sipper explores cellular computations which
+in contrast with microprocessors consist of relatively simple cells which
+interact directly only with its neighbors, lacking a global control mechanism.
+In short, processors are designed, cellular computation \textit{emerges}.\\
+In \cite{langton_computation_1990} Langton explores the requirements for
+cellular systems to support \textit{emergent computation}, where
 he argues that in order for a system to support emergent computation it must
 lie in a \textit{critical phase} between order and chaos, drawing parallels to
 phase transitions in material science.
@@ -55,7 +50,7 @@ This observation comes from thermodynamics, in which a material may exhibit a
 \textit{second order phase transition} between a solid and liquid form where the
 material undergoes a continuous transition in contrast to a first order
 transition such as melting ice.
-Using cellular automata as an example, he explores the effect of varying the
+Using \textit{cellular automata} as an example, he explores the effect of varying the
 rules for calculating the next state with a parameter, $\lambda$, which
 describes how likely it is for a cell to enter a \textit{quiescent state}, a state
 where it will not disturb other cells until it leaves the quiescent state itself.
@@ -97,6 +92,12 @@ In simpler terms, the properties that make complex systems so hard to work with
 such as sensitivity to initial conditions also allows them to discern very
 subtle nuances in input, and their complex behavioral patterns causes the
 systems to change their behavior to new input based on previous input.
+Many such reservoirs have been successfully exploited.
+In \cite{jaeger_adaptive_2003} an \textit{echo state network} 
+is utilized to solve classification problems.
+More esoteric reservoirs have been used, for instance in
+\cite{natschlager_liquid_2002} the idea of reservoir computing is taken quite
+literally using a bucket of water as a reservoir.
 With reservoir computing there is no need for a designer shaping a system, the
 systems organize and shape their own behavior, all that needs (and can) be done
 is to understand how to present information to the reservoir as initial conditions
@@ -124,8 +125,7 @@ of state that may be contained in the filters.
   feed forward neural networks.
   The input processing and output layer are both trained with machine learning
   to process input and to interpret output from a reservoir in order to perform
-  a specific task.
-}
+  a specific task.}
   \label{fig:RC}
 \end{figure*}
 \subsection{Neuron Computing}

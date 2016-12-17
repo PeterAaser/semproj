@@ -12,6 +12,6 @@
     "fig:generic_MEA"
     "fig:st_olav_MEA"
     "fig:headstage"
-    "fig:neuron_anatomy"))
+    "fig:MCS-IFB"))
  :latex)
 
