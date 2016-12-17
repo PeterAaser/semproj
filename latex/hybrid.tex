@@ -15,7 +15,7 @@ a clue into the inner workings of sentience.
 \begin{figure}[h!]
     %\centering
     \includegraphics[width=\linewidth]{images/cyborg_overview.png}
-    \caption{The gist of it..}
+    \caption{The proposed architecture for a cyborg using neural cultures as a reservoir}
     \label{fig:cyborg_idea}
 \end{figure}
 \subsection{Platform}
@@ -65,7 +65,7 @@ Introduced in the previous chapter, the \textit{MEA} is equipped with an array
 of microscopic electrodes capable of sensing and delivering voltages to and from
 nearby neurons.
 \ref{fig:generic_MEA} shows an empty MEA,
-\ref{st_olav_MEA} shows an MEA from st.olavs with a live neuron culture.
+\ref{fig:st_olav_MEA} shows an MEA used by the department of neuroscience with a live neuron culture.
 \subsubsection{Headstage}
 The electrodes of the MEAs are measured and stimulated by the headstage which
 contains the necessary high precision electronics needed for microvolt range readings.
@@ -81,17 +81,18 @@ headstages as shown in \ref{fig:IFB_regular} which can then be acquired on a nor
 computer connected via USB.
 In the second mode of operation a Texas instruments TMS320C6454 digital signal
 processor is activated which can then be interfaced with using the secondary USB
-port as shown in \ref{fig:IFB_BSP}
+port as shown in \ref{fig:IFB_DSP}
 \begin{figure}[h!]
     %\centering
     \includegraphics[width=\linewidth]{images/regular_operation.png}
-    \caption{Casual mode}
+    \caption{Standard operating mode for the interface board}
     \label{fig:IFB_regular}
 \end{figure}
 \begin{figure}[h!]
     %\centering
     \includegraphics[width=\linewidth]{images/dsp_operation.png}
-    \caption{DSP active}
+    \caption{Activating the digital signal processor allows\\
+    real-time processing and feedback at the cost of a headstage slot.}
     \label{fig:IFB_DSP}
 \end{figure}
 \begin{figure}[h!]
@@ -134,13 +135,19 @@ port as shown in \ref{fig:IFB_BSP}
 \begin{figure}[h!]
     %\centering
     \includegraphics[width=\linewidth]{images/MEA2100-HS60.jpg}
-    \caption{The headstage}
+    \caption{The headstage.
+      This device contains the highly sensitive electrical
+      measurement equipment needed to get accurate readings from neural
+      cultures.
+    }
     \label{fig:headstage}
 \end{figure}
 \begin{figure}[h!]
     %\centering
     \includegraphics[width=\linewidth]{images/MCS-IFB.jpg}
-    \caption{The MCS interface board}
+    \caption{The interface board.
+      This device is a link between headstages and lab computers.
+    It can support two headstages in normal operation, or one headstage in DSP mode.}
     \label{fig:neuron_anatomy}
 \end{figure}
 %%% Local Variables:
