@@ -1,0 +1,116 @@
+Introductory the connection between neural networks and complex systems guided
+the reservoir computational approach.
+This fundamental similarity between seemingly unrelated systems has guided the
+design process of the software system to allow for accommodating a wide variety
+of reservoirs in contrast to previous approaches such as
+\cite{li_application_2015}.
+Rather than focusing simply on connecting in-vitro cultures to robots, the
+architecture which is currently in development aims to provide a highly modular
+system which allows for many different reservoirs on many different platforms.
+By broadening the concept of a cyborg to a hybrid of machine and reservoir we
+can study differences and similarities between different reservoirs, increasing
+our understanding of the underlying properties of complex systems.
+\subsection{Areas Of Concern}
+The guiding principle for the RC cyborg architecture is to separate different
+concerns and provide simple interfaces between them.
+An important consequence of this choice is that it allows us to reuse much code
+between a cyborg using a neural network as a reservoir and one using a random
+boolean network.
+To clarify it is important to introduce the concept of \textit{application
+  specific} and \textit{reservoir specific} data processing.
+The former is the data processing stage performed in context of reservoir
+computing used to interpret the dynamics of the reservoir to perform a specific
+task.
+The latter describes data processing done outside the context of reservoir
+computing, from simple noise reduction to more transformative filters, such as
+spike detection for neural networks.
+From this perspective the same neural network can act as two different
+reservoirs, one delivering raw waveform data, the other delivering spike data.
+The following sections describe the areas of concern, and where they fit in
+context of reservoir computing.
+\subsubsection{Data Acquisition and Interfacing}
+Data acquisition (DAQ) is the task of configuring and interfacing with a specific
+reservoir, essentially providing the wrapper for an actual reservoir which
+represents the idealized shown in \ref{that RC image}.
+The data acquisition may perform reservoir specific data processing as described
+in the previous section, 
+% ???
+Finally, the data acquisition and interfacing module should expose an interface
+via TCP/IP allowing configuring the reservoir, accessing reservoir output and
+accepting requests to stimulate the reservoir.
+%
+% Data acquisition entails configuring the MEA2100, collecting 
+% data from the MEA2100 and setting up stimuli. This means the data acquisition
+% and interfacing software must at least be able to deliver a raw, that is
+% unprocessed data-stream, as well as being able to accept requests for stimuli
+% over TCP/IP.
+% In practice the data acquisition software may also handle processing of acquired
+% data for performance reasons, but it is not a required task.
+\subsubsection{Data Processing}
+This part of the architecture is responsible for the reservoir computing
+processing of data which is shown in the idealized model of reservoir computing in
+\ref{that RC image}.
+Implementations of the data processing stage must be able to filter input from
+a reservoir received from the DAQ module into actions, as well as filtering
+sensor data received from the agent control module to a format compatible with
+the reservoir.
+Note that two different reservoirs may provide the same interface, allowing the
+same data processing component to utilize different reservoirs as long as the
+format remains the same.
+As with the DAQ module, data processing communicates via TCP/IP to both the DAQ
+module and the agent control module.
+\subsubsection{Agent Control}
+This module implements the robot part of the RC-cyborg, which can range from
+being a simple simulated agent in an idealized game to a fully fledged physical
+robot interacting with the real world.
+The agent control interfaces with the data processing module, receiving agent
+specific output from the reservoir which it may use (in a physical robot the
+reservoir does not have the final word as a safety measure).
+It also transmits sensor data back to the data processing module, providing
+feedback to the reservoir.
+As with the DAQ module, some sensory processing may be done by agent control,
+but only reservoir agnostic filtering.
+\subsection{Implementation} 
+The following sections describe the software currently implemented for
+controlling the NTNU cyborg and where they fit into the general RC-cyborg
+framework.
+This represents the bulk of work performed in this paper.
+\subsubsection{MEAME}
+MEAME implements data acquisition and interfacing for using neural cultures as a
+reservoir.
+It is written in C\# and interfaces to the MEA2100 system using an API provided
+by multichannel systems allowing it to interface with the interface board
+\ref{fig:IFB}.
+MEAME also implements the optional DSP which is used to stimulate the neurons
+and can be used to process the waveform data from the neural cultures in real
+time, and even implement more advanced techniques for timing stimulation to
+maximize impact.
+By configuring the DSP the MEAME system may act as several reservoirs in context
+of an RC-cyborg system, even though it uses the same underlying neural culture
+for each mode.
+Many configurations are possible for the DSP not only for processing outbound
+data.
+In \cite{kumar_autonomous_2016} machine learning is employed in order to select
+optimal timings for stimulating a neural network to maximize response.
+If this technique is implemented on the DSP the resulting system would be a
+reservoir with different characteristics even though it uses the same underlying
+neural network as its physical reservoir.
+\subsubsection{SHODAN}
+SHODAN is a framework for composing reservoir computing experiments written in
+scala. In contrast to MEAME which is written specifically for interfacing with
+MEA2100, SHODAN is intended to facilitate general purpose input and output
+processing for reservoir computing.
+The main focus of SHODAN is to perform task specific processing of reservoir
+data, but it also comes with tools for extending reservoir specific processing
+such as spike detection.
+At the core SHODAN is a framework containing a library of tools used for
+processing functional streams of data such as feed forward artificial neural
+networks and methods for encoding and decoding data to facilitate implementing
+different protocols for TCP/IP communication.
+SHODAN also comes equipped with a built in simulator that currently consists of
+a simple wall avoidance game which acts as an agent control module which
+includes a real time visualizer that can be accessed in a browser.
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
