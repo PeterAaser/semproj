@@ -82,15 +82,26 @@ for a butterfly in china to flap its wings in order to cause a hurricane in New 
 Faced with the intractability of designing cellular computation systems in a top
 down manner, and the unpredictable relation between cause and effect in self organizing
 systems has made it necessary to approach complex systems in a different manner.
-One such approach is to treat the system as a \textit{reservoir}
+Seemingly classifying the neural culture as a complex system has not provided
+any useful tools for understanding how to interact with it, on the contrary it
+makes such a task look futile.
+However, in computer science the recent field of \textit{reservoir computing}
+has emerged, embracing the complexity and unpredictability of certain complex
+systems.
+By treating a complex systems as a \textit{reservoir}
 \cite{schrauwen_overview_2007} which
 ``acts as a complex nonlinear dynamic filter that transforms the
 input signals using a high-dimensional temporal map, not unlike the operation
 of an explicit, temporal kernel function.''\\
-In reservoir computing there is no designer shaping a system, the systems
-organize and shape their own behavior, forming systems with complex behavior
-that can reflect subtle differences in initial conditions and stimuli.
-From the perspective of reservoir computing using a neural culture is reduced to
+In simpler terms, the properties that make complex systems so hard to work with
+such as sensitivity to initial conditions also allows them to discern very
+subtle nuances in input, and their complex behavioral patterns causes the
+systems to change their behavior to new input based on previous input.
+With reservoir computing there is no need for a designer shaping a system, the
+systems organize and shape their own behavior, all that needs (and can) be done
+is to understand how to present information to the reservoir as initial conditions
+or as perturbations, and how to interpret the output.
+From this perspective using a neural culture is reduced to
 learning the correlation between input and output from the reservoir, treating
 the internals as a black box.
 \ref{fig:RC} shows a typical RC (reservoir computing) system with three inputs

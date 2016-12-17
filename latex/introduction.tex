@@ -1,40 +1,46 @@
 Since the 50s, the Von-Neumann computer architecture has been ubiquitous in the
 field of computing. This architecture owes its success to its relative
 simplicity, allowing quick iterations in tact with doubling transistor counts in
-accord with moores law.
-However several issues with the Von-Neumann architecture have become more and more
-pressing in recent times. Issues such as the Von-Neumann memory bottleneck are
-becoming increasingly difficult to hide, and its inherently serial nature of computation.
-Even in the case that moores law will continue, we still face issues with lack
-of scalability in modern processors.
-With billions of transistors a top down
-design process is becoming increasingly difficult and expensive, and a single
-faulty transistor can cause an entire chip to be useless.
-These weaknesses necessitates going beyond the Von-Neumann architecture,
+accord with moores law \cite{moore}.
+However several issues with the Von Neumann architecture have become more and more
+pressing in recent times.
+Issues such as the Von-Neumann memory bottleneck are becoming increasingly
+difficult to hide, and its inherently serial nature of computation makes
+increasing parallelism difficult and error prone.
+HiPEAC 2015\cite{HIPEAC} identifies four key challenges for the future of
+computer architecture design.
+\begin{enumerate}
+\item dependability by design
+\item managing system complexity
+\item energy efficiency
+\item entanglement between physical and virtual world
+\end{enumerate}
+Even with the assumption that moores law will hold in the future these issues
+threaten to drastically reduce the scalability of modern processor designs.
+These weaknesses necessitate going beyond the Von-Neumann architecture,
 exploring unconventional computing paradigms.
-Taking inspiration from nature we
-look at cellular computing consisting of computational cells which by themselves
-are unremarkable.
-In these systems we observe properties that cannot be
+In nature a completely different approach is taken which effectively deal with
+all these issues:
+The human brain vastly outperforms computer on the three first issues, having no
+single point of failure, being self organized and operating at an estimate of 20 Watts.
+Not only does the neurons making up the brain handily beat computers, the same
+neurons provide a sense of touch, sight and smell handily beating current
+efforts in the fourth issue.
+Taking inspiration from nature we look at the paradigm of \textit{cellular computing}
+\cite{sipper_emergence_1999} where cells which by themselves are unremarkable
+are combined to perform highly efficient parallel computations.
+These cellular systems exhibit behavior properties that cannot be
 traced back to a single cell, they only appear when multiple cells are
-interacting with each other.
+interacting with each other, known as \textit{emergent behavior}.
 In nature these systems form without any form of supervision, a property known
 as \textit{self organization}, with an example being 
 DNA which ``describes how to build the system, not what the system will look
 like'' \cite{tufte_evo_2009}.
-These \textit{emergent properties} arise in systems built from the bottom up by
-%
-a set of growth rules rather than a designers intent, a  property, which allows a flexibility and robustness that modern
-processors lack, a prime example being the human brain.
-%
-The human brain is a vastly parallel computer, eclipsing modern processors in
-terms of computational capacity, robustness, energy efficiency and complexity.
-The three first properties make them very appealing subjects to study for
-unconventional computing, however due to the immense complexity the brain is
-still enigmatic.
+Understanding how these cellular systems that arise seemingly by
+themselves can be so successful and how we can harness this power may hold the
+key to solving problems faced in modern computer architectures.
 In this paper we explore using neuron cultures to create an organic mechanical
 hybrid organism, a so called \textit{cyborg}.
-
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"

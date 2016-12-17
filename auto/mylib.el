@@ -34,6 +34,8 @@
     "scalapagos"
     "MEAME"
     "SHODAN"
+    "HIPEAC"
+    "moore"
     "jabref-meta:"))
  :bibtex)
 

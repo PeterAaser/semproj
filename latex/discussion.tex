@@ -1,1 +1,40 @@
-iiiiiiiScalapagos
+\subsection{Reservoir Compatibility}
+With the RC cyborg framework using different reservoirs in the same harness is
+made possible, however this requires some modification to the reservoirs
+themselves.
+As an example we consider the difficulties involved with training the reservoir
+computing system on neural networks.
+These networks are constantly changing and growing, even small topological
+changes may move an important cluster of neurons outside the range of an
+electrode.
+A possible approach is to use a random boolean network as a stand in reservoir for a
+neural culture.
+A random boolean network is a graph where each node is assigned a boolean function
+of their inbound edges.
+Since these nodes will have either the value 1 or 0 we can select a few of them
+and let nodes with state 0 act as no activity, and nodes with the value 1 act as
+a spiking neuron.
+Similarly sensor stimuli can be used to switch input nodes on or off,
+``perturbing'' the system.
+Note that this is only one of many possible reservoir specific filters as
+defined in the RC cyborg framework altering the functionality of the reservoir.
+With this translation two very different underlying reservoirs can now be
+interacted with using the same input and output, allowing a system to be trained
+on different underlying reservoirs while sharing a majority of code.
+Simply making the input and output between two reservoirs compatible will of
+course not cause them to behave anything like each other.
+The problem of utilizing random boolean networks as a viable stand-in for
+neurons is very far from being solved, however compatibility is an important
+first step.
+\subsection{Adaptivity}
+In the RC cyborg framework adaptivity and learning is not elaborated on, but
+this aspect will become crucial when the implementations mature.
+Reservoir computing does not add any constraints on how the task specific
+filters should be constructed, thus typically the filters are created using
+general purpose machine learning kits.
+For reservoirs such as random boolean networks this is a sensible solution,
+however for neural networks that evolve, changing their behavior with time the
+RC cyborg must be capable of adapting along with the reservoir.
+As with reservoir compatibility this is a complex task, but by considering the
+learning system to be a part of the RC-cyborg we may lessen the compatibility
+gap between different reservoirs.

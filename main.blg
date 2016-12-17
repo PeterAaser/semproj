@@ -4,6 +4,8 @@ The top-level auxiliary file: main.aux
 The style file: ieeetr.bst
 Database file #1: mylib.bib
 Warning--I didn't find a database entry for "ntnu_cyborg_web"
+Warning--empty journal in sipper_emergence_1999
+Warning--empty year in sipper_emergence_1999
 Warning--empty journal in tufte_evo_2009
 Warning--empty year in tufte_evo_2009
 Warning--empty journal in bertschinger_real-time_2004
@@ -17,45 +19,45 @@ Warning--empty journal in li_application_2015
 Warning--empty year in li_application_2015
 Warning--empty journal in kumar_autonomous_2016
 Warning--empty year in kumar_autonomous_2016
-You've used 8 entries,
+You've used 11 entries,
             1876 wiz_defined-function locations,
-            514 strings with 4732 characters,
-and the built_in function-call counts, 2142 in all, are:
-= -- 205
-> -- 69
+            526 strings with 4989 characters,
+and the built_in function-call counts, 2622 in all, are:
+= -- 253
+> -- 75
 < -- 0
-+ -- 27
-- -- 19
-* -- 146
-:= -- 273
-add.period$ -- 6
-call.type$ -- 8
-change.case$ -- 8
++ -- 31
+- -- 20
+* -- 173
+:= -- 328
+add.period$ -- 9
+call.type$ -- 11
+change.case$ -- 11
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 127
-empty$ -- 202
-format.name$ -- 19
-if$ -- 523
+cite$ -- 26
+duplicate$ -- 150
+empty$ -- 265
+format.name$ -- 20
+if$ -- 648
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 7
-newline$ -- 27
-num.names$ -- 7
-pop$ -- 46
+int.to.str$ -- 11
+missing$ -- 8
+newline$ -- 36
+num.names$ -- 8
+pop$ -- 62
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 104
+skip$ -- 126
 stack$ -- 0
-substring$ -- 128
-swap$ -- 57
+substring$ -- 152
+swap$ -- 63
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 13
-while$ -- 18
-width$ -- 9
-write$ -- 64
-(There were 14 warnings)
+warning$ -- 15
+while$ -- 22
+width$ -- 13
+write$ -- 85
+(There were 16 warnings)
