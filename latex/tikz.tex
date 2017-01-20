@@ -24,9 +24,9 @@
       \node[mynode, pin=left: Input \#\y] (preI-\name) at (0,-\y) {};
 
     % Draw the hidden layer nodes
-    \foreach \name / \y in {1,...,\preHiddenNeurons}
-      \path[yshift=0.5cm]
-        node[mynode] (preH-\name) at (\layersep,-\y cm) {};
+    %\foreach \name / \y in {1,...,\preHiddenNeurons}
+    %  \path[yshift=0.5cm]
+    %    node[mynode] (preH-\name) at (\layersep,-\y cm) {};
 
     % Draw the output layer node
     \foreach \name / \z in {1,...,\preOutputNeurons}
@@ -34,12 +34,12 @@
         node[mynode] (preO-\name) at (\layersep + \layersep, -\z cm) {};
 
     \foreach \source in {1,...,\preInputNeurons}
-      \foreach \dest in {1,...,\preHiddenNeurons}
-        \path (preI-\source) edge (preH-\dest);
-
-    \foreach \source in {1,...,\preHiddenNeurons}
       \foreach \dest in {1,...,\preOutputNeurons}
-        \path (preH-\source) edge (preO-\dest);
+        \path (preI-\source) edge (preO-\dest);
+
+    %\foreach \source in {1,...,\preHiddenNeurons}
+    %  \foreach \dest in {1,...,\preOutputNeurons}
+    %    \path (preH-\source) edge (preO-\dest);
 
     \begin{scope}[xshift = 6cm, yshift = -1cm]
       \node [mynode] (Ra)     at ( 0.0, 0.2) {};
@@ -61,9 +61,9 @@
           node[mynode] (postI-\name) at (0,-\y) {};
 
       % Draw the hidden layer nodes
-      \foreach \name / \y in {1,...,\OutHiddenNeurons}
-        \path[yshift=1.0cm]
-          node[mynode] (postH-\name) at (\layersep,-\y cm) {};
+      % \foreach \name / \y in {1,...,\OutHiddenNeurons}
+      %   \path[yshift=1.0cm]
+      %     node[mynode] (postH-\name) at (\layersep,-\y cm) {};
 
       % Draw the output layer node
       \foreach \name / \z in {1,...,\OutOutputNeurons}
@@ -71,12 +71,12 @@
           node[mynode, pin = right: Output \#\z] (postO-\name) at (\layersep + \layersep, -\z cm) {};
 
       \foreach \source in {1,...,\OutInputNeurons}
-        \foreach \dest in {1,...,\OutHiddenNeurons}
-          \path (postI-\source) edge (postH-\dest);
-
-      \foreach \source in {1,...,\OutHiddenNeurons}
         \foreach \dest in {1,...,\OutOutputNeurons}
-          \path (postH-\source) edge (postO-\dest);
+          \path (postI-\source) edge (postO-\dest);
+
+      % \foreach \source in {1,...,\OutHiddenNeurons}
+      %   \foreach \dest in {1,...,\OutOutputNeurons}
+      %     \path (postH-\source) edge (postO-\dest);
 
     \end{scope}
 
@@ -96,19 +96,19 @@
     \begin{scope}[on background layer]
       \node (pre)
         [fill = black!10, draw = black!60, thick,
-         fit = {($(preI-1.left) + (-0.7,0)$) (preH-1) (preH-4) ($(preO-1.right) + (0.2,0)$)}] {};
+         fit = {($(preI-1.left) + (-0.7,0)$) (preI-1) (preI-3) ($(preO-1.right) + (0.2,0)$)}] {};
       \node (reservoir)
         [fill = black!10, draw = black!60, thick, shape = circle,
          fit = (Ra) (Rb) (Rc) (Rin1) (Rin2) (Rout1) (Rout2)] {};
 
       \node (post)
         [fill = black!10, draw = black!60, thick,
-         fit = {($(postI-1.left) + (-0.9,0)$) (postH-1) (postH-5) ($(postO-1.right) + (0.1,0)$)}] {};
+         fit = {($(postI-1.left) + (-0.9,0)$) (postI-1) (postI-2) ($(postO-1.right) + (0.1,0)$)}] {};
     \end{scope}
 
-    \node[annot, above of=preH-1, node distance = 1cm]  {Input processing};
+    \node[annot, above of=preI-1, node distance = 1cm]  {Input layer};
     \node[annot, above of=Ra, node distance = 1.4cm]  {Reservoir};
-    \node[annot, above of=postH-1, node distance = 0.9cm] {Output layer};
+    \node[annot, above of=postI-1, node distance = 0.9cm] {Output layer};
 \end{tikzpicture}
 
 %%% Local Variables:

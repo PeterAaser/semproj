@@ -13,8 +13,9 @@ in special chambers in-vitro.
 The robot part of the cyborg has been developed and implemented by the
 department of engineering cybernetics, and is currently operational, however it
 has not yet been integrated with the in-vitro neuron cultures.
-The challenge faced by the cyborg project is the infrastructure for interfacing the
-neuron cultures and the robot, essentially creating a brain computer interface.
+The challenge faced by the cyborg project is creating the infrastructure for
+interfacing the neuron cultures and the robot, essentially creating a brain
+computer interface.
 \subsection{Complex Systems}
 \textit{
   In this paper references are made to computations done by both artificial and real
@@ -22,9 +23,9 @@ neuron cultures and the robot, essentially creating a brain computer interface.
   To make the distinction between these cases clear all computation done by
   computer simulated approximations of neurons will be prefixed as artificial.
 }\\
-Simply creating a bridge between neural cultures and a machine will not of any
-use without a way to understand what to make of the information coming from the
-network, and how to encode information sent back to the network.
+Simply creating a bridge between neural cultures and a machine will not be of any
+use without a way to make sense of the information coming from the
+network, or how to encode information sent back to the network.
 In order to harness the computational power of neural networks a theoretical
 framework is therefore necessary, starting with the concept of \textit{complex
  systems}.
@@ -36,7 +37,7 @@ other states to be relatively stable, resulting in multiple meta-stable states,
 so called \textit{attractors}, that give the system some measure of order.
 By classifying neural cultures as one of many cellular computing systems that
 exhibit the properties of a complex system we can model the behavior of neurons
-with much simpler models (of complex systems).
+with much simpler models.
 In \cite{sipper_emergence_1999} Sipper explores cellular computations which
 in contrast with microprocessors consist of relatively simple cells which
 interact directly only with its neighbors, lacking a global control mechanism.
@@ -76,14 +77,14 @@ for a butterfly in china to flap its wings in order to cause a hurricane in New 
 \subsection{Reservoir Computing}
 Faced with the intractability of designing cellular computation systems in a top
 down manner, and the unpredictable relation between cause and effect in self organizing
-systems has made it necessary to approach complex systems in a different manner.
-Seemingly classifying the neural culture as a complex system has not provided
+systems it is necessary to approach complex systems in a different manner.
+Seemingly, classifying the neural culture as a complex system has not provided
 any useful tools for understanding how to interact with it, on the contrary it
 makes such a task look futile.
 However, in computer science the recent field of \textit{reservoir computing}
 has emerged, embracing the complexity and unpredictability of certain complex
 systems.
-By treating a complex systems as a \textit{reservoir}
+In reservoir computing, a complex systems is used as a \textit{reservoir}
 \cite{schrauwen_overview_2007} which
 ``acts as a complex nonlinear dynamic filter that transforms the
 input signals using a high-dimensional temporal map, not unlike the operation
@@ -92,7 +93,7 @@ In simpler terms, the properties that make complex systems so hard to work with
 such as sensitivity to initial conditions also allows them to discern very
 subtle nuances in input, and their complex behavioral patterns causes the
 systems to change their behavior to new input based on previous input.
-Many such reservoirs have been successfully exploited.
+Many such reservoirs have been successfully exploited:
 In \cite{jaeger_adaptive_2003} an \textit{echo state network} 
 is utilized to solve classification problems.
 More esoteric reservoirs have been used, for instance in
@@ -100,11 +101,13 @@ More esoteric reservoirs have been used, for instance in
 literally using a bucket of water as a reservoir.
 With reservoir computing there is no need for a designer shaping a system, the
 systems organize and shape their own behavior, all that needs (and can) be done
-is to understand how to present information to the reservoir as initial conditions
-or as perturbations, and how to interpret the output.
-From this perspective using a neural culture is reduced to
-learning the correlation between input and output from the reservoir, treating
-the internals as a black box.
+is to find a good way to present information to the reservoir as either initial
+conditions or as perturbations, and how to interpret the resulting dynamics.
+From this perspective using a neural culture is simplified into
+learning some approximation of the correlation between input and output from the
+reservoir, treating the internals as a black box.
+Like the servants of the oracle of Delphi, the reservoir computing system must
+phrase the question correctly, and interpret the often incomprehensible answer.
 \ref{fig:RC} shows a typical RC (reservoir computing) system with three inputs
 and two outputs. The inputs are processed in a simple feed-forward neural
 network before perturbing the reservoir in some way.
@@ -145,15 +148,11 @@ A neuron maintains this potential difference by transporting ions of opposite
 polarity through the cell membrane, essentially preparing a spike of electrical
 activity.
 This spike is triggered as the neuron receives electrical stimuli via a network
-of electrical receptors called dendrites
+of electrical receptors called dendrites.
 When excited, a neuron which has built up a sufficient polarity difference will
 trigger a polarity shift.
 This polarity shift cascades along the axon, a long tendril that can extend to
-reach far away neurons, forming branches that may reach multiple neurons.\\
-In artificial neural networks consisting of primitive nodes emulating the
-electrical signaling of neurons has been utilized for hard tasks such as image
-recognition and classification tasks, not really sure where I'm going with this.
-
+reach far away neurons, forming branches that may reach multiple neurons.
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
